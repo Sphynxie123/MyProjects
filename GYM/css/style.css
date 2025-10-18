@@ -1,0 +1,426 @@
+/* =========================  GLOBAL STYLES  ========================= */
+
+body {
+    margin: 0;
+    padding-top: 70px; /* prevents overlapping */
+}
+
+/* =========================  HEADER LOGO  ========================= */
+
+header .logo .small {
+    height: 13px;
+    width: 13px;
+    background-color: rgb(0, 0, 0);
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+header .logo .bigger {
+    height: 17px;
+    width: 17px;
+    background-color: rgb(0, 0, 0);
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    border-radius: 50%; 
+    margin-left: -6px;   
+}
+
+header .logo .circle {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    margin-left: -8px;
+}
+
+header .logo p {
+    padding: 5px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+header .logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* =========================  HEADER  ========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(200, 200, 222);
+    position: fixed;      /* fixes at the top */
+    top: 0;               
+    left: 0;              
+    width: 100%;          /* full width of the screen*/
+    z-index: 1000;        /* always on top */
+    padding: 8px 25px;   
+    height: 60px;        
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* <--new line to prevent wrapping */
+    gap: 30px; /* space */
+    margin: 25px;
+    padding: 0;
+    justify-content: flex-end; /* aligned right */
+}
+
+header ul li {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 0 10px;
+    display: block; /* <- covers full box */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px; 
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+header ul li a:hover {
+    color: rgb(125, 120, 120);
+}
+
+/* =========================  BOX STYLE  ========================= */
+
+header ul .box a {
+    background-color: rgb(129, 129, 236);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 10px 18px; 
+    white-space: nowrap; /* no line breaks */
+}
+
+header ul .box:hover a {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+/* =========================  SLOGAN AND COMMUNITY  ========================= */
+
+.slogan h1 span {
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    font-size: 85px;    
+}
+
+.community h2 span {
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    font-size: 100px;
+}
+
+.slogan .liveBetter,
+.community .joinTheCommunity {
+    color: rgb(129, 129, 236);
+}
+
+.slogan,
+.community {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* =========================  BOXES, IMAGES, GRID  ========================= */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 500px);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgb(200, 200, 222);
+}
+
+.bigFoto {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2; /* replace height: 500px */
+    overflow: hidden; /* image overflow */
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.bigFoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fully fills the div without losing proportions */
+    display: block;
+}
+
+.firstText {
+    grid-column: 3;
+    grid-row: 1/2; /* replace height: 500px */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;  /* revents horizontal shrinking */
+    border: 2px solid rgb(0, 0, 0);
+}
+
+/* =========================  COMMITTED BUTTONS  ========================= */
+
+.committed p {
+    margin-bottom: 20px;
+}
+
+.committed a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: rgb(129, 129, 236);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+/* =========================  GUIDED BY EXPERTS & DYNAMIC OPEN GYM  ========================= */
+
+.guidedByExperts {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.dynamicOpenGym {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.guidedByExperts,
+.dynamicOpenGym {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* =========================  SMALL PHOTO  ========================= */
+
+.smallFoto {
+    grid-column: 3;
+    grid-row: 2;
+    overflow: hidden;
+    border: 2px solid rgb(9, 9, 9);
+}
+
+.smallFoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================  DISCOVER YOUR POTENTIAL  ========================= */
+
+.discoverYourPotential {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: rgb(200, 200, 222);
+    padding: 20px;
+}
+
+.discoverYourPotential .secondText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 20px;
+    padding: 10px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.discoverYourPotential h2 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.discoverYourPotential h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.discoverYourPotential p {
+    margin: 0 0 1rem;
+    color: rgb(0, 0, 0);
+}
+
+.discoverYourPotential a {
+    margin-top: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.discoverYourPotential .secondText .link a {
+    border-radius: 7px;
+    background-color: rgb(129, 129, 236);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.discoverYourPotential .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================  BE ARE MEMBER SECTION  ========================= */
+
+.beAreMember {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    background-color: rgb(138, 138, 187);
+    gap: 10px;
+}
+
+.beAreMember h3,
+.beAreMember h2,
+.beAreMember a {
+    margin: 0;
+}
+
+.beAreMember h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.beAreMember h2 {
+    font-family: Impact, Bebas Neue, sans-serif;
+    font-weight: bold;
+    font-size: 85px;
+}
+
+.beAreMember a {
+    display: block;
+    background-color:  rgb(200, 200, 222);
+    border-radius: 7px;
+    padding: 12px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.beAreMember a:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.logoPosition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================  FOOTER  ========================= */
+
+footer {
+    background-color:  rgb(200, 200, 222);
+    padding: 20px;
+}
+
+footer .bigLogo .bigSmall {
+    height: 75px;
+    width: 75px;
+    background-color: rgb(0, 0, 0);
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+footer .logoPosition .bigLogo .bigBigger {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(0, 0, 0);
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    border-radius: 50%; 
+    margin-left: -38px;   
+}
+
+footer .logoPosition .bigLogo .bigCircle {
+    height: 120px;
+    width: 120px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    margin-left: -50px;
+}
+
+footer .logoPosition .logoTitle {
+    padding: 5px;
+    font-size: 55px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+footer .logoPosition .bigLogo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+footer .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0;
+    line-height: 1.6; 
+}
+
+.hourColumn {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+    min-width: 250px;
+    font-weight: bold;
+}
+
+.hourColumn p {
+    margin: 0;
+    line-height: 1.4; 
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+}
+
+.socialIcon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    line-height: 1.6;
+    min-width: 80px; 
+}
+
+.social img {
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+}
+
+
