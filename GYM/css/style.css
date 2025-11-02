@@ -124,8 +124,8 @@ header ul .box:hover a {
     font-size: 100px;
 }
 
-.slogan .liveBetter,
-.community .joinTheCommunity {
+.slogan .live-better,
+.community .join-the-community {
     color: rgb(129, 129, 236);
 }
 
@@ -146,21 +146,21 @@ header ul .box:hover a {
     background-color: rgb(200, 200, 222);
 }
 
-.bigFoto {
+.big-foto {
     grid-column: 1 / 3;
     grid-row: 1 / 2; /* replace height: 500px */
     overflow: hidden; /* image overflow */
     border: 2px solid rgb(0, 0, 0);
 }
 
-.bigFoto img {
+.big-foto img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* fully fills the div without losing proportions */
     display: block;
 }
 
-.firstText {
+.first-text {
     grid-column: 3;
     grid-row: 1/2; /* replace height: 500px */
     display: flex;
@@ -188,7 +188,7 @@ header ul .box:hover a {
 
 /* =========================  GUIDED BY EXPERTS & DYNAMIC OPEN GYM  ========================= */
 
-.guidedByExperts {
+.guided-by-experts {
     grid-column: 1;
     grid-row: 2;
     padding: 20px;
@@ -196,7 +196,7 @@ header ul .box:hover a {
     border: 2px solid rgb(0, 0, 0);
 }
 
-.dynamicOpenGym {
+.dynamic-open-gym {
     grid-column: 2;
     grid-row: 2;
     padding: 20px;
@@ -204,8 +204,8 @@ header ul .box:hover a {
     border: 2px solid rgb(0, 0, 0);
 }
 
-.guidedByExperts,
-.dynamicOpenGym {
+.guided-by-experts,
+.dynamic-open-gym {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -213,14 +213,14 @@ header ul .box:hover a {
 
 /* =========================  SMALL PHOTO  ========================= */
 
-.smallFoto {
+.small-foto {
     grid-column: 3;
     grid-row: 2;
     overflow: hidden;
     border: 2px solid rgb(9, 9, 9);
 }
 
-.smallFoto img {
+.small-foto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -229,14 +229,14 @@ header ul .box:hover a {
 
 /* =========================  DISCOVER YOUR POTENTIAL  ========================= */
 
-.discoverYourPotential {
+.discover-your-potential {
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: rgb(200, 200, 222);
     padding: 20px;
 }
 
-.discoverYourPotential .secondText {
+.discover-your-potential .second-text {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -245,30 +245,30 @@ header ul .box:hover a {
     border: 2px solid rgb(0, 0, 0);
 }
 
-.discoverYourPotential h2 {
+.discover-your-potential h2 {
     font-size: 2rem;
     font-weight: 800;
 }
 
-.discoverYourPotential h3 {
+.discover-your-potential h3 {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 0.3rem;
 }
 
-.discoverYourPotential p {
+.discover-your-potential p {
     margin: 0 0 1rem;
     color: rgb(0, 0, 0);
 }
 
-.discoverYourPotential a {
+.discover-your-potential a {
     margin-top: 1rem;
     font-weight: bold;
     text-decoration: none;
     color: rgb(0, 0, 0);
 }
 
-.discoverYourPotential .secondText .link a {
+.discover-your-potential .second-text .link a {
     border-radius: 7px;
     background-color: rgb(129, 129, 236);
     color: rgb(255, 255, 255);
@@ -276,7 +276,7 @@ header ul .box:hover a {
     transition: all 0.3s ease;
 }
 
-.discoverYourPotential .image img {
+.discover-your-potential .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -284,7 +284,7 @@ header ul .box:hover a {
 
 /* =========================  BE ARE MEMBER SECTION  ========================= */
 
-.beAreMember {
+.be-are-member {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -294,24 +294,24 @@ header ul .box:hover a {
     gap: 10px;
 }
 
-.beAreMember h3,
-.beAreMember h2,
-.beAreMember a {
+.be-are-member h3,
+.be-are-member h2,
+.be-are-member a {
     margin: 0;
 }
 
-.beAreMember h3 {
+.be-are-member h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
 }
 
-.beAreMember h2 {
+.be-are-member h2 {
     font-family: Impact, Bebas Neue, sans-serif;
     font-weight: bold;
     font-size: 85px;
 }
 
-.beAreMember a {
+.be-are-member a {
     display: block;
     background-color:  rgb(200, 200, 222);
     border-radius: 7px;
@@ -320,12 +320,12 @@ header ul .box:hover a {
     text-decoration: none;
 }
 
-.beAreMember a:hover {
+.be-are-member a:hover {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
 
-.logoPosition {
+.logo-position {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -338,7 +338,7 @@ footer {
     padding: 20px;
 }
 
-footer .bigLogo .bigSmall {
+footer .big-logo .big-small {
     height: 75px;
     width: 75px;
     background-color: rgb(0, 0, 0);
@@ -347,7 +347,7 @@ footer .bigLogo .bigSmall {
     margin-left: 10px;
 }
 
-footer .logoPosition .bigLogo .bigBigger {
+footer .logo-position .big-logo .big-bigger {
     height: 100px;
     width: 100px;
     background-color: rgb(0, 0, 0);
@@ -356,7 +356,7 @@ footer .logoPosition .bigLogo .bigBigger {
     margin-left: -38px;   
 }
 
-footer .logoPosition .bigLogo .bigCircle {
+footer .logo-position .big-logo .big-circle {
     height: 120px;
     width: 120px;
     background-color: rgb(0, 0, 0);
@@ -364,14 +364,14 @@ footer .logoPosition .bigLogo .bigCircle {
     margin-left: -50px;
 }
 
-footer .logoPosition .logoTitle {
+footer .logo-position .logo-title {
     padding: 5px;
     font-size: 55px;
     font-weight: bold;
     font-family: sans-serif;
 }
 
-footer .logoPosition .bigLogo {
+footer .logo-position .big-logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -385,7 +385,7 @@ footer .contact {
     line-height: 1.6; 
 }
 
-.hourColumn {
+.hour-column {
     display: flex;
     justify-content: space-between;
     align-content: flex-end;
@@ -393,7 +393,7 @@ footer .contact {
     font-weight: bold;
 }
 
-.hourColumn p {
+.hour-column p {
     margin: 0;
     line-height: 1.4; 
 }
@@ -403,7 +403,7 @@ footer .contact {
     flex-direction: column;
 }
 
-.socialIcon {
+.social-icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
