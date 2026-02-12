@@ -1,0 +1,210 @@
+header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    border: 1rem solid black;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.logo .logo-figure {
+    height: 25px;
+    width: 25px;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo .logo-figure p {
+    color: rgb(255, 255, 255);
+}
+
+.logo .logo-figure p,
+.logo .logo-text {
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: rgb(102, 102, 255);
+    /* keičiasi spalva užvedus */
+    text-decoration: underline;
+    /* arba galima: none */
+}
+
+header form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header .header-icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+input[type=text] {
+    width: 300px;
+    max-width: 90%;
+    /*kad neišsiplėstu*/
+    box-sizing: border-box;
+    border: 2px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: rgb(255, 255, 255);
+    background-image: url('https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_640.png');
+    background-position: 6px 6px;
+    background-repeat: no-repeat;
+    /*kas paveikslelis nesikartotu.*/
+    background-size: 16px 16px;
+    /*kas nebutu per didele*/
+    padding: 6px 20px 6px 30px;
+}
+
+input[type=text]:focus {
+    border-color: rgb(102, 102, 102);
+    outline: none;
+    /*kad mėlyni "griaučiai nesimatytu"*/
+    box-shadow: 0 0 5px rgb(170, 170, 170)
+}
+
+.header-icon .shop-icon,
+.header-icon .account-icon {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    /* vienodas visoms ikonėlėms */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-icon .shop-icon {
+    background-image: url('https://cdn.pixabay.com/photo/2014/06/19/00/59/shopping-cart-371980_640.png');
+}
+
+.header-icon .account-icon {
+    background-image: url('https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png');
+}
+
+
+/* Sekcijos stilius */
+#categories {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 280px;
+}
+
+/* Antraštė */
+#categories h3 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+/* Sąrašas be taškelių */
+#categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Kiekviena eilutė */
+#categories-list li {
+  margin: 8px 0;
+}
+
+/* Kategorijų etiketės */
+#categories-list label {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Checkbox'ai */
+#categories-list input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Skaičiukai šone */
+.count {
+  color: gray;
+  font-size: 0.9em;
+}
+/*SECTION: main layout*/
+section {
+    display: flex; /* makes categories and products divs sit side by side */
+    gap: 30px;
+    padding: 20px;
+    align-items: flex-start;
+}
+#categories {
+    flex: 0 0 35%; /* fixed width of sidebar as 35% of section */
+    position: sticky; /* makes sidebar stay visible when scrolling */
+    top: 20px;
+    max-height: 80vh; 
+    overflow: auto;  /* scroll inside if content is too tall */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 12px;
+    background: white;
+}
+#categories-list label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;      /* pointer ant hover */
+    user-select: none;    /* prevent text selection on click */
+}
+#categories-list input[type="checkbox"] {
+    cursor: pointer;
+    margin-right: 8px;
+}
+/*PRODUCT CARDS STYLING*/
+#products {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgb(0,0,0,0.08);
+    transition: 0.2s ease;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgb(0,0,0,0.15);
+}
+.product-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
