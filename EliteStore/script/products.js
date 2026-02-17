@@ -8,50 +8,58 @@ const products = [
     { id:7, category: "Sports", name: "Professional Running Shoes", description:"description is...", count: 156, price: 124 ,image: "img/photo_001.jpg"},
     { id:8, category: "Beauty", name: "Luxury Skincare Set", description:"description is...", count: 143, price: 78 ,image: "img/photo_008.jpg" }
 ]
-// extract unique categories from a products array
+
+// ---------------------
+// EXTRACT UNIQUE CATEGORIES
+// ---------------------
+
 function getCategories(productsArray) {
-// Create a new Set to store unique categories
-    const categoriesSet = new Set();
-    // Loop through each product in the array
+    const categoriesSet = new Set();    
     for (const product of productsArray) {
-        // Add the product's category to the Set
-        // Set automatically ignores duplicates
         categoriesSet.add(product.category);
     }
-    // Convert the Set back to an array and return it
     return [...categoriesSet];
 }
-// Call the function with the products array
 const categories = getCategories(products);
 
 const list = document.querySelector('#categories-list');
-// Loop through each unique category
+
 categories.forEach(cat => {
-    // Create a label element to wrap checkbox + text
-    const label = document.createElement('label');
-    label.style.display = 'block'; //kad checkboxai būtu po vieną
 
-    // Create the checkbox input
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.value = cat; //naudosi filtravimui
-    checkbox.name = 'category'; // visi checkboxai turi tą patį vardą
-    
-    //Append checkbox and text to label
-    label.appendChild(checkbox);
-    label.appendChild(document.createTextNode(cat));
+    const li = document.createElement("li");
+    const label = document.createElement("label");
 
-    //Append label to list (<ul>)
-    list.appendChild(label);
+    label.classList.add("category-item");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = cat;
+    checkbox.name = "category";
+    // count products in each category
+    const count = products.filter(({ category }) => category === cat).length;
+
+    // text + number at the end
+    label.innerHTML += `
+        <span class="cat-name">${cat}</span>
+        <span class="cat-count">${count}</span>
+    `;
+
+    label.prepend(checkbox);
+    li.appendChild(label);
+    list.appendChild(li);
 });
+
+// ---------------------
+// DISPLAY PRODUCTS
+// ---------------------
 
 const productsDiv = document.querySelector('#products');
 
 function displayProducts(productArray){
-    productsDiv.innerHTML = ""; // Clear the container so nothing is left before rendering
-    productArray.forEach(product => { // Loop through each product in the array
-        const card = document.createElement("div"); // Create a new div for the product card
-        card.classList.add("product-card"); // Add a class for styling the card
+    productsDiv.innerHTML = ""; 
+    productArray.forEach(product => { 
+        const card = document.createElement("div"); 
+        card.classList.add("product-card");
 
         card.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
@@ -59,7 +67,29 @@ function displayProducts(productArray){
             <p>${product.category}</p>
             <p>Price: $${product.price}</p>
         `;
-        productsDiv.appendChild(card); // Add the card to the main container
+        productsDiv.appendChild(card);
     });
 }
 displayProducts(products);
+
+// ---------------------
+// FILTER PRODUCTS ON CHECKBOX
+// ---------------------
+
+const checkboxes = document.querySelectorAll('#categories-list input');
+
+checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+        // Get selected categories
+        const checkedCategories = Array.from(checkboxes) //convert to array
+            .filter(c => c.checked)
+            .map(c => c.value);
+        // Filter products by selected categories, or show all if none            
+        if (checkedCategories.length === 0) {
+            displayProducts(products); 
+        } else {
+            const filtered = products.filter(({ category }) => checkedCategories.includes(category));
+            displayProducts(filtered);
+        }
+    });
+});

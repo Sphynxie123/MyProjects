@@ -1,104 +1,105 @@
+/* =========================
+   HEADER LAYOUT
+========================= */
+
 header {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    border: 1rem solid black;
+    position: sticky; /* Sticky header on scroll */
+    top: 0;
+    z-index: 1000; /* Keep header above page content */
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 1px solid #ddd;
 }
+
+/* Logo block */
 
 .logo {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     padding: 0 10px;
 }
 
-.logo .logo-figure {
-    height: 25px;
-    width: 25px;
-    border-radius: 5px;
-    background-color: rgb(0, 0, 0);
+.logo-figure {
+    height: 28px;
+    width: 28px;
+    border-radius: 6px;
+    background: black;
+    color: white;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.logo .logo-figure p {
-    color: rgb(255, 255, 255);
-}
-
-.logo .logo-figure p,
-.logo .logo-text {
+.logo-text {
     font-weight: bold;
+    font-size: 16px;
 }
 
-header nav ul {
-    list-style: none;
+/* Navigation menu */
+
+nav {
+    flex: 1;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
+    justify-content: center;
 }
 
-header nav a {
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    font-weight: 600;
     text-decoration: none;
     color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
+    transition: 0.2s;
 }
 
-header nav a:hover {
-    color: rgb(102, 102, 255);
-    /* keičiasi spalva užvedus */
-    text-decoration: underline;
-    /* arba galima: none */
+nav a:hover {
+    color: #6666ff;
 }
+
+/* Search bar */
 
 header form {
+    flex: 1;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-header .header-icon {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: center;
 }
 
 input[type=text] {
-    width: 300px;
-    max-width: 90%;
-    /*kad neišsiplėstu*/
-    box-sizing: border-box;
-    border: 2px solid rgb(204, 204, 204);
-    border-radius: 5px;
-    font-size: 12px;
-    background-color: rgb(255, 255, 255);
-    background-image: url('https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_640.png');
-    background-position: 6px 6px;
-    background-repeat: no-repeat;
-    /*kas paveikslelis nesikartotu.*/
-    background-size: 16px 16px;
-    /*kas nebutu per didele*/
-    padding: 6px 20px 6px 30px;
+    width: 100%;
+    max-width: 320px;
+    padding: 8px 12px 8px 34px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background: url('https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_640.png')
+        no-repeat 10px center;
+    background-size: 16px;
 }
 
-input[type=text]:focus {
-    border-color: rgb(102, 102, 102);
-    outline: none;
-    /*kad mėlyni "griaučiai nesimatytu"*/
-    box-shadow: 0 0 5px rgb(170, 170, 170)
+/* Header icons */
+
+.header-icon {
+    display: flex;
+    gap: 15px;  
 }
 
-.header-icon .shop-icon,
-.header-icon .account-icon {
-    width: 32px;
-    height: 32px;
+.header-icon div {
+    width: 30px;
+    height: 30px;
     background-size: contain;
-    /* vienodas visoms ikonėlėms */
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
 }
 
 .header-icon .shop-icon {
@@ -109,83 +110,71 @@ input[type=text]:focus {
     background-image: url('https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png');
 }
 
-
-/* Sekcijos stilius */
-#categories {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-width: 280px;
-}
-
-/* Antraštė */
-#categories h3 {
-  margin-bottom: 16px;
-  font-size: 1.2rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
-}
-
-/* Sąrašas be taškelių */
-#categories-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Kiekviena eilutė */
-#categories-list li {
-  margin: 8px 0;
-}
-
-/* Kategorijų etiketės */
-#categories-list label {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Checkbox'ai */
-#categories-list input[type="checkbox"] {
-  margin-right: 8px;
-}
-
-/* Skaičiukai šone */
-.count {
-  color: gray;
-  font-size: 0.9em;
-}
 /*SECTION: main layout*/
+
 section {
-    display: flex; /* makes categories and products divs sit side by side */
+    display: flex;
     gap: 30px;
-    padding: 20px;
+    padding: 25px 40px;
     align-items: flex-start;
 }
+
+/* Sidebar */
+
 #categories {
-    flex: 0 0 35%; /* fixed width of sidebar as 35% of section */
+    flex: 0 0 280px; /* fixed width of sidebar as 280px of section */
     position: sticky; /* makes sidebar stay visible when scrolling */
-    top: 20px;
+    top: 90px; /* Offset the sidebar so it doesn't hide behind the sticky header */
     max-height: 80vh; 
-    overflow: auto;  /* scroll inside if content is too tall */
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 12px;
+    overflow-y: auto; 
+    padding: 20px;
+    border-radius: 14px;
     background: white;
+    border: 1px solid #ddd; 
 }
-#categories-list label {
-    display: block;
-    margin: 8px 0;
-    cursor: pointer;      /* pointer ant hover */
-    user-select: none;    /* prevent text selection on click */
+
+#categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-#categories-list input[type="checkbox"] {
+
+#categories-list li {
+    margin-bottom: 12px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 15px;
+    cursor: default;
+    user-select: none;
+}
+
+.category-item input {
+    margin-right: 10px;
     cursor: pointer;
-    margin-right: 8px;
 }
+
+.category-item input:focus {
+    outline: none;
+}
+
+.cat-name {
+    flex: 1;
+    user-select: none;
+    cursor: pointer;
+}
+
+.cat-count {
+    color: gray;
+    font-size: 14px;
+}
+
 /*PRODUCT CARDS STYLING*/
+
 #products {
     flex: 1;
     display: grid;
@@ -193,9 +182,10 @@ section {
     gap: 20px;
 }
 .product-card {
-    border: 1px solid #ddd;
+    border: 1px solid #eee; 
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 14px;
+    background: white;
     text-align: center;
     box-shadow: 0 4px 10px rgb(0,0,0,0.08);
     transition: 0.2s ease;
@@ -206,5 +196,5 @@ section {
 }
 .product-card img {
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
 }
