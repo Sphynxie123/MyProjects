@@ -198,3 +198,60 @@ section {
     max-width: 100%;
     border-radius: 12px;
 }
+
+/*FOOTER*/
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 15px;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer li {
+    margin: 10px;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover {
+    color: #6666ff;
+}
+
+/*SOCIAL MEDIA ICONS*/
+
+.social-media {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    transition: transform 0.3s, filter 0.3s;
+    cursor: pointer; 
+}
+
+.social-icon:hover {
+    transform: scale(1.2);     
+    filter: brightness(1.3);    
+}
+

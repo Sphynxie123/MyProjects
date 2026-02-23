@@ -93,3 +93,39 @@ checkboxes.forEach(cb => {
         }
     });
 });
+
+// ---------------------
+// FOOTER SOCIAL MEDIA
+// ---------------------
+
+const socialIcons = [
+    { src: './socialMediaIcon/Facebook.png', url: 'http://#' },
+    { src: './socialMediaIcon/Instagram.gif', url: 'http://#' },
+    { src: './socialMediaIcon/linkedIn.gif', url: 'http://#' },
+    { src: './socialMediaIcon/YouTube.gif', url: 'http://#' }
+];
+
+const socialMediaContainer = document.querySelector('.social-media');
+
+for (const icon of socialIcons) {
+    // Create link element
+    const link = document.createElement('a');
+    link.href = icon.url;
+    link.target = "_blank"; // Open in new tab
+    link.rel = "noopener noreferrer";   // Security: prevent new tab from accessing original window
+
+    // Create img element
+    const img = document.createElement('img');
+    img.src = icon.src;
+    img.alt = "social icon";
+    img.classList.add('social-icon');
+
+    // Append image to link
+    link.appendChild(img);
+
+    // Append link to container
+    socialMediaContainer.appendChild(link);
+}
+
+
+
