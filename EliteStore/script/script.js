@@ -1,3 +1,11 @@
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});
+
 const products = [
     { id:1, category: "Electronics", name: "Headphones", description:"description is...", count: 156, price: 199 ,image: "img/photo_005.jpg"},
     { id:2, category: "Electronics", name: "Security Camera", description:"description is...", count: 50, price: 80 ,image: "img/photo_003.jpg"},
@@ -9,9 +17,7 @@ const products = [
     { id:8, category: "Beauty", name: "Luxury Skincare Set", description:"description is...", count: 143, price: 78 ,image: "img/photo_008.jpg" }
 ]
 
-// ---------------------
-// EXTRACT UNIQUE CATEGORIES
-// ---------------------
+// --------------------- EXTRACT UNIQUE CATEGORIES ---------------------
 
 function getCategories(productsArray) {
     const categoriesSet = new Set();    
@@ -20,12 +26,13 @@ function getCategories(productsArray) {
     }
     return [...categoriesSet];
 }
+
 const categories = getCategories(products);
 
 const list = document.querySelector('#categories-list');
+const mobileList = document.querySelector('#mobile-categories-list');
 
-categories.forEach(cat => {
-
+function createCategoryItem(cat) {
     const li = document.createElement("li");
     const label = document.createElement("label");
 
@@ -46,12 +53,38 @@ categories.forEach(cat => {
 
     label.prepend(checkbox);
     li.appendChild(label);
-    list.appendChild(li);
+
+    return li;
+}
+
+categories.forEach(cat => {
+
+    list.appendChild(createCategoryItem(cat)); // Tablet,Desktop
+    mobileList.appendChild(createCategoryItem(cat)); // Mobile
 });
 
-// ---------------------
-// DISPLAY PRODUCTS
-// ---------------------
+// --------------------- FILTER PRODUCTS ON CHECKBOX
+
+const checkboxes = document.querySelectorAll('input[name="category"]');
+
+checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+        // Get selected categories
+        const checked = Array.from(checkboxes) //convert to array
+            .filter(c => c.checked)
+            .map(c => c.value);
+        // Filter products by selected categories, or show all if none            
+        if (checked.length === 0) {
+            displayProducts(products); 
+        } else {
+            displayProducts(
+                products.filter(p => checked.includes(p.category))
+            );
+        }
+    });
+})
+
+// --------------------- DISPLAY PRODUCTS
 
 const productsDiv = document.querySelector('#products');
 
@@ -72,31 +105,7 @@ function displayProducts(productArray){
 }
 displayProducts(products);
 
-// ---------------------
-// FILTER PRODUCTS ON CHECKBOX
-// ---------------------
-
-const checkboxes = document.querySelectorAll('#categories-list input');
-
-checkboxes.forEach(cb => {
-    cb.addEventListener('change', () => {
-        // Get selected categories
-        const checkedCategories = Array.from(checkboxes) //convert to array
-            .filter(c => c.checked)
-            .map(c => c.value);
-        // Filter products by selected categories, or show all if none            
-        if (checkedCategories.length === 0) {
-            displayProducts(products); 
-        } else {
-            const filtered = products.filter(({ category }) => checkedCategories.includes(category));
-            displayProducts(filtered);
-        }
-    });
-});
-
-// ---------------------
-// FOOTER SOCIAL MEDIA
-// ---------------------
+// --------------------- FOOTER SOCIAL MEDIA
 
 const socialIcons = [
     { src: './socialMediaIcon/Facebook.png', url: 'http://#' },
@@ -105,27 +114,25 @@ const socialIcons = [
     { src: './socialMediaIcon/YouTube.gif', url: 'http://#' }
 ];
 
-const socialMediaContainer = document.querySelector('.social-media');
+const socialMediaContainers = document.querySelectorAll('.social-media');
 
-for (const icon of socialIcons) {
-    // Create link element
-    const link = document.createElement('a');
-    link.href = icon.url;
-    link.target = "_blank"; // Open in new tab
-    link.rel = "noopener noreferrer";   // Security: prevent new tab from accessing original window
+socialMediaContainers.forEach(container => {
+    for (const icon of socialIcons) {
+        // Create link element
+        const link = document.createElement('a');
+        link.href = icon.url;
+        link.target = "_blank"; // Open in new tab
+        link.rel = "noopener noreferrer";   // Security: prevent new tab from accessing original window
 
-    // Create img element
-    const img = document.createElement('img');
-    img.src = icon.src;
-    img.alt = "social icon";
-    img.classList.add('social-icon');
+        // Create img element
+        const img = document.createElement('img');
+        img.src = icon.src;
+        img.alt = "social icon";
+        img.classList.add('social-icon');
 
-    // Append image to link
-    link.appendChild(img);
-
-    // Append link to container
-    socialMediaContainer.appendChild(link);
-}
-
-
-
+        // Append image to link
+        link.appendChild(img);
+        // Append link to container
+        container.appendChild(link);
+    }
+});
